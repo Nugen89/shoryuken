@@ -10,8 +10,8 @@ module Shoryuken
     end
 
     def receive_messages(queue, limit)
-      puts "-------receive_messages-------"
-      Rails.logger.info "-------receive_messages-------"
+      # puts "-------receive_messages-------"
+      # Rails.logger.info "-------receive_messages-------"
 
       # AWS limits the batch size by 10
       limit = limit > FETCH_LIMIT ? FETCH_LIMIT : limit

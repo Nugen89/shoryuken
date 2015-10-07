@@ -21,8 +21,8 @@ module Shoryuken
       options[:message_attribute_names] = %w(All)
       options[:attribute_names] = %w(All)
 
-      puts options.inspect
-      Rails.logger.info options.inspect
+      # puts options.inspect
+      # Rails.logger.info options.inspect
 
       Shoryuken::Client.queues(queue).receive_messages options
     end

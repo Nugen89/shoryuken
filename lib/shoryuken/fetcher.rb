@@ -10,9 +10,6 @@ module Shoryuken
     end
 
     def receive_messages(queue, limit)
-      # puts "-------receive_messages-------"
-      # Rails.logger.info "-------receive_messages-------"
-
       # AWS limits the batch size by 10
       limit = limit > FETCH_LIMIT ? FETCH_LIMIT : limit
 
@@ -20,9 +17,6 @@ module Shoryuken
       options[:max_number_of_messages] = limit
       options[:message_attribute_names] = %w(All)
       options[:attribute_names] = %w(All)
-
-      # puts options.inspect
-      # Rails.logger.info options.inspect
 
       Shoryuken::Client.queues(queue).receive_messages options
     end
